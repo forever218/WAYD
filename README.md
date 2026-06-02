@@ -1,6 +1,8 @@
 # AI 对话助手
 
 一个完全免费的抽象视奸程序
+<img width="1222" height="628" alt="image" src="https://github.com/user-attachments/assets/b5718d52-f2bd-4bc6-907b-8609202240d3" />
+
 
 ## 功能特点
 
