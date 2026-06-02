@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 拟态风格变量 */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --primary-bg: #e0e5ec;
+  --text-color: #333;
+  --shadow-light: #ffffff;
+  --shadow-dark: #a3b1c6;
+}
+
+/* 赛博朋克风格变量 */
+[data-theme="cyberpunk"] {
+  --foreground-rgb: 0, 255, 255;
+  --background-start-rgb: 10, 10, 20;
+  --background-end-rgb: 20, 20, 40;
+  --primary-bg: #0a0a14;
+  --text-color: #00ffff;
+  --shadow-light: #1a1a2e;
+  --shadow-dark: #000000;
+}
+
+html, body {
+  color: rgb(var(--foreground-rgb));
+  background: transparent; /* 确保 html 和 body 都是透明的 */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.chat-container {
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.chat-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.message {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  max-width: 85%;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+  margin-left: auto;
+  text-align: right;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.assistant-message {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  margin-right: auto;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.input-area {
+  padding: 0.75rem;
+}
+
+/* Markdown 样式 */
+.message a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.message pre {
+  background-color: #f3f4f6;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.message code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+
+.message pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.message ul, .message ol {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.message p {
+  margin-bottom: 0.5rem;
+}
+
+.message p:last-child {
+  margin-bottom: 0;
+}
+
+/* 气泡消息动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 拟态风格样式 */
+.neumorphic-container {
+  background-color: var(--primary-bg);
+  box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  border-radius: 20px;
+}
+
+.neumorphic-button {
+  background-color: var(--primary-bg);
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.neumorphic-button:hover {
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+}
+
+.neumorphic-input {
+  background-color: var(--primary-bg);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  border-radius: 10px;
+}
+
+/* 赛博朋克风格样式 */
+[data-theme="cyberpunk"] .neumorphic-container {
+  background-color: var(--primary-bg);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.1), inset 0 0 10px rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+[data-theme="cyberpunk"] .neumorphic-button {
+  background-color: var(--primary-bg);
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+[data-theme="cyberpunk"] .neumorphic-button:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5);
+  border-color: rgba(0, 255, 255, 0.8);
+}
+
+[data-theme="cyberpunk"] .neumorphic-input {
+  background-color: rgba(0, 255, 255, 0.05);
+  box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+/* 赛博朋克风格的消息样式 */
+[data-theme="cyberpunk"] .user-message {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2) 0%, rgba(0, 255, 255, 0.1) 100%);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+}
+
+[data-theme="cyberpunk"] .assistant-message {
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.2) 0%, rgba(255, 0, 255, 0.1) 100%);
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  box-shadow: 0 0 5px rgba(255, 0, 255, 0.2);
+}
+
+/* 赛博朋克风格的滚动条 */
+[data-theme="cyberpunk"] .chat-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
